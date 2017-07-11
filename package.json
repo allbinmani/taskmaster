@@ -28,12 +28,12 @@
   },
   "author": "Mattias Nilsson <mattias@allbinary.se>",
   "license": "MIT",
-  "contibutors": [{"name": "Jedediah Smith, Online By Design LLC",
+  "contibutors": [{"name":  "Jedediah Smith, Online By Design LLC",
                    "email": "jedediahsmith@onlinebydesign.com",
-                   "url": "https://onlinebydesign.com/"},
-                  {"name": "Mattias Nilsson, AllBinary AB",
-                   "email" "mattias@allbinary.se",
-                   "url": "http://allbinary.se/"}],
+                   "url":   "https://onlinebydesign.com/"},
+                  {"name":  "Mattias Nilsson, AllBinary AB",
+                   "email": "mattias@allbinary.se",
+                   "url":   "http://allbinary.se/"}],
   "bugs": {
     "url": "https://github.com/allbinmani/taskmaster/issues"
   },
