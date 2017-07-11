@@ -3,8 +3,7 @@
     "role": "runner",
     "master": {
         "port": 13000,
-        "host": "localhost",
-        "mongoURL": "mongodb://test:test@ds153422.mlab.com:53422/distnn"
+        "host": "localhost"
     },
     "runner": {
         "name": "worker1",
