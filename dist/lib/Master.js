@@ -70,8 +70,9 @@ var Master = function (_EventEmitter) {
         _this._timeout += 10000; //Add 10 seconds so the time is slightly longer than that for the worker
 
         // Module configuration
-        _mongoose2.default.connect(config.master.mongoURL, { useMongoClient: true });
-        _this.Log.info('Connecting to ' + config.master.mongoURL);
+        var mongo_url = process.env.MONGO_URL || 'mongodb://localhost/test';
+        _mongoose2.default.connect(mongo_url, { useMongoClient: true });
+        _this.Log.info('Connecting to ' + mongo_url);
 
         _this._debugMongoose();
 
