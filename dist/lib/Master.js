@@ -442,7 +442,7 @@ var Master = function (_EventEmitter) {
                             _this8._log.info({ completed: completedDependencyTasks }, completedDependencyTasks.length, 'Completed dependencies');
                             // If every dependency matches any completedDependency then we have found the next task
                             return next(_lodash2.default.every(unassignedTask.dependencies, function (dependency) {
-                                return _lodash2.default.any(completedDependencyTasks, function (completedDependencyTask) {
+                                return _lodash2.default.some(completedDependencyTasks, function (completedDependencyTask) {
                                     return _lodash2.default.isMatch(completedDependencyTask.toObject(), dependency);
                                 });
                             }));

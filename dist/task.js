@@ -3,7 +3,7 @@
 var EventEmitter = require('events');
 var bunyan = require('bunyan');
 
-var taskFolder = 'tasks';
+var taskFolder = process.env.TASK_FOLDER || 'tasks';
 
 var ee = new EventEmitter();
 var log = bunyan.createLogger({ name: 'task' });
