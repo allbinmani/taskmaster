@@ -20,7 +20,7 @@ process.on('message', function(message) {
         task = message.task;
         try {
             log.info({taskFolder: taskFolder, taskModule: task.module}, 'Running actual task');
-            let fullPath = './' + taskFolder + '/' + task.module;
+            let fullPath = taskFolder + '/' + task.module;
             log.info({path: fullPath}, "Task script");
             let taskScript = require(fullPath);
             taskScript.apply(ee, task.params);
