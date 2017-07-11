@@ -2,13 +2,15 @@
     "version": 1,
     "role": "runner",
     "master": {
-        "port": 3000,
+        "port": 13000,
         "host": "localhost",
-        "mongoURL": "mongodb://localhost/taskrunner"
+        "mongoURL": "mongodb://test:test@ds153422.mlab.com:53422/distnn"
     },
     "runner": {
-        "name": "archon",
+        "name": "worker1",
         "maxWorkers": 2,
+        "spawnCommand": "../node_modules/.bin/babel-node",
+        "spawnArgs": ["--presets es2015"],
         "taskFolder": "tasks",
         "worker": {
             "timeout": 300000

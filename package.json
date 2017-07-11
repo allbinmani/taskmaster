@@ -19,7 +19,10 @@
     "socket.io-client": "^1.3.3",
     "socket.io-cookie": "0.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node master.js"
