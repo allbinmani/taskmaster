@@ -1,20 +1,15 @@
 {
   "name": "taskmaster",
-  "version": "1.0.0",
-  "description": "Distributed task runner tool. Designed for tasks that are idempotent.",
+  "version": "2.0.0",
+  "description": "Distributed task runner tool. Designed for tasks that are idempotent. Based on TaskMaster v1 by Jedediah Smith.",
   "main": "master.js",
   "dependencies": {
     "async": "^1.4.0",
     "bunyan": "^1.3.4",
-    "bunyan-emailstream": "^1.0.0",
-    "bunyan-mongodb-stream": "0.0.3",
-    "bunyan-slack": ">=0.0.7",
     "express": "^4.11.2",
     "lodash": "^3.2.0",
-    "mandrill-api": "^1.0.41",
     "moment": "^2.9.0",
     "mongoose": "^4.0.5",
-    "npm": "^2.5.0",
     "socket.io": "^1.3.3",
     "socket.io-client": "^1.3.3",
     "socket.io-cookie": "0.0.1"
@@ -25,16 +20,22 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node master.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/onlinebydesign/taskmaster.git"
+    "url": "https://github.com/allbinmani/taskmaster.git#v2"
   },
-  "author": "",
+  "author": "Mattias Nilsson <mattias@allbinary.se>",
   "license": "MIT",
+  "contibutors": [{"name": "Jedediah Smith, Online By Design LLC",
+                   "email": "jedediahsmith@onlinebydesign.com",
+                   "url": "https://onlinebydesign.com/"},
+                  {"name": "Mattias Nilsson, AllBinary AB",
+                   "email" "mattias@allbinary.se",
+                   "url": "http://allbinary.se/"}],
   "bugs": {
-    "url": "https://github.com/onlinebydesign/taskmaster/issues"
+    "url": "https://github.com/allbinmani/taskmaster/issues"
   },
-  "homepage": "https://github.com/onlinebydesign/taskmaster"
+  "homepage": "https://github.com/allbinmani/taskmaster"
 }
