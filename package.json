@@ -21,7 +21,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/babel --presets es2015 -d dist app.js worker.js task.js lib/*.js",
-    "start": "node app.js"
+    "start": "cd dist; node app.js"
   },
   "repository": {
     "type": "git",

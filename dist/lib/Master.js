@@ -385,7 +385,7 @@ var Master = function (_EventEmitter) {
          * Next available task is one that:
          *  - has not been assigned
          *  - is sorted by priority descending
-         *  - is sorted by created ascending
+         *  - is sorted by createdAt ascending
          *  and:
          *  - has no dependencies unmet
          */
@@ -397,7 +397,7 @@ var Master = function (_EventEmitter) {
 
             // Find tasks that have not been assigned yet
             _TaskModel2.default.find({ $or: [/* has never been assigned? */
-                { assigned: { $exists: false } },
+                { $or: [{ assigned: { $exists: false } }, { assigned: null }] },
 
                 /* has been assigned, but returned an error */
                 { $and: [{ assigned: { $exists: true } }, { 'assigned.completed': { $exists: false } }, { 'assigned.status': 'error' }] },
@@ -408,7 +408,7 @@ var Master = function (_EventEmitter) {
                 /* has been assigned, but might have timed out */
                 { $and: [{ assigned: { $exists: true } }, { 'assigned.when': { $lte: (0, _moment2.default)().add(-this._timeout, 'ms').unix() } }, { 'assigned.status': 'assigned' }] }] })
             //where('assigned.completed').exists(false)
-            .sort('-priority created')
+            .sort('-priority createdAt')
             // Added a limit because there can be millions of unassigned,
             // tasks needing attention which can drastically affect performance.
             //            .limit(1000)

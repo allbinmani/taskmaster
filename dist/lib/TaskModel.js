@@ -15,7 +15,6 @@ var _moment2 = _interopRequireDefault(_moment);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var taskSchema = new _mongoose2.default.Schema({
-    "created": { type: Number, default: (0, _moment2.default)().unix(), index: true },
     "priority": { type: Number, default: 50, index: true },
     "timeout": Number,
     "assigned": {
@@ -28,7 +27,7 @@ var taskSchema = new _mongoose2.default.Schema({
     "result": _mongoose2.default.Schema.Types.Mixed,
     "params": [_mongoose2.default.Schema.Types.Mixed],
     "dependencies": [_mongoose2.default.Schema.Types.Mixed]
-});
+}, { timestamps: true });
 
 taskSchema.index({ module: 1, params: 1 }, { unique: true });
 exports.default = _mongoose2.default.model('Task', taskSchema);
