@@ -194,13 +194,8 @@ var Master = function (_EventEmitter) {
 
             tasks = _lodash2.default.isArray(tasks) ? tasks : [tasks];
             _async2.default.each(tasks, function (task, next) {
-
-                // Only allow one task with a given module, params, and dependencies
-                _TaskModel2.default.update({
-                    module: task.module,
-                    params: task.params,
-                    dependencies: task.dependencies
-                }, task, { upsert: true }, function (err) {
+                var tm = new _TaskModel2.default(task);
+                tm.save(function (err) {
                     if (err) {
                         return next(err, task);
                     }

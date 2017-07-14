@@ -29,5 +29,5 @@ var taskSchema = new _mongoose2.default.Schema({
     "dependencies": [_mongoose2.default.Schema.Types.Mixed]
 }, { timestamps: true });
 
-taskSchema.index({ module: 1, params: 1 }, { unique: true });
+//taskSchema.index({module:1, params: 1}, {unique: true});
 exports.default = _mongoose2.default.model('Task', taskSchema);
