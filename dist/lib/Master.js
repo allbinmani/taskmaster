@@ -151,6 +151,10 @@ var Master = function (_EventEmitter) {
                     _this3.Log.error({ err: err }, 'Error finding task');
                     return;
                 }
+                if (!task) {
+                    _this3.Log.error({ err: err }, 'Could not find task');
+                    return;
+                }
                 task.result = result;
                 task.assigned.completed = (0, _moment2.default)().unix();
                 task.assigned.status = 'done';
@@ -174,6 +178,10 @@ var Master = function (_EventEmitter) {
             _TaskModel2.default.findById(taskParsed._id, function (err, task) {
                 if (err) {
                     _this4.Log.error({ err: err }, 'Error finding task');
+                    return;
+                }
+                if (!task) {
+                    _this4.Log.error({ err: err }, 'Could not find task');
                     return;
                 }
                 task.result = err;
@@ -325,8 +333,8 @@ var Master = function (_EventEmitter) {
                             return next(err);
                         }
 
-                        socket.emit('task:run', JSON.stringify(task));
                         socket._idleWorker = false;
+                        socket.emit('task:run', JSON.stringify(task));
 
                         // Use global timeout unless specific task timeout is set.
                         var taskTimeout = task.timeout || _this6._timeout;
