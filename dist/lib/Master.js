@@ -143,7 +143,15 @@ var Master = function (_EventEmitter) {
             this.Log.info({ task: taskJSON, result: result }, 'Worker task done');
             clearTimeout(socket._timer);
 
-            var taskParsed = JSON.parse(taskJSON);
+            var taskParsed = void 0;
+            try {
+                JSON.parse(taskJSON);
+            } catch (jse) {
+                this.Log.warn({ taskJSON: taskJSON, result: result }, "JSON parse error", jse);
+            }
+            if (!taskParsed) {
+                return;
+            }
             _TaskModel2.default
             //                            .where('assigned.completed').exists(true)
             .findById(taskParsed._id, function (err, task) {
