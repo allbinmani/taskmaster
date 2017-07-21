@@ -145,7 +145,7 @@ var Master = function (_EventEmitter) {
 
             var taskParsed = void 0;
             try {
-                JSON.parse(taskJSON);
+                taskParsed = JSON.parse(taskJSON);
             } catch (jse) {
                 this.Log.warn({ taskJSON: taskJSON, result: result }, "JSON parse error", jse);
             }
